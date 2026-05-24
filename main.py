@@ -32,12 +32,11 @@ def get_todo(todo_id: int):
     return todos[todo_id]
 
 @app.post("/postTodo")
-def create_todo(task: str):
+def create_todo(todo: Todo):
     global todos
     global current_id
 
-    result = Todo(title = task,
-                  completed = False)
+    result = Todo(title = todo.title)
 
     todos.update({ current_id : result })
     current_id += 1
